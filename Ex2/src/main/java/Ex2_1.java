@@ -1,6 +1,4 @@
 package main.java;
-
-import java.io.*;
 import java.util.Random;
 
 public class Ex2_1 {
@@ -12,22 +10,21 @@ public class Ex2_1 {
         String[] files_names = new String[n];
         Random rand = new Random(seed);
         for (int i = 0; i < n; i++) {
-            int numOfLines = rand.nextInt(bound);
-            files_names[i] = create_files(i);
-            write_files(files_names[i], numOfLines);
+            int numOfLines = rand.nextInt(bound);       //to give randomly number of lines in file_X.txt
+            files_names[i] = functions.create_files(i);
+            functions.write_files(files_names[i], numOfLines);
         }
         return files_names;
     }
 
     //fonction 2
     public static int getNumOfLines(String[] fileNames){
-        int num_lines = 0;
+        int numOfLines = 0;
         for (String file_name : fileNames) {
-            num_lines += countLines(file_name);
+            numOfLines += functions.count_lines(file_name);
         }
-        return num_lines;
+        return numOfLines;
     }
-
 
     //fonction 3
     public int getNumOfLinesThreads(String[] fileNames){
@@ -40,51 +37,12 @@ public class Ex2_1 {
     }
 
 
-    //help function 1
-    private static int countLines(String file_name) {
-        int count = 0;
-        try {
-            File file = new File(file_name);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            while (( reader.readLine()) != null) {
-                count++;
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return count;
-    }
-
-    //help function 2
-    private static String create_files(int num_file) {
-        String fileName = "file_" + num_file + ".txt";
-        try {
-            File file = new File(fileName);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return fileName;
-    }
-
-    //help function 3
-    private static void write_files(String file_name, int num_lines) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file_name));
-            for (int i = 0; i < num_lines; i++) {
-                writer.write("Hello World" + "\n");
-            }
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+    //----------------------------------MAIN-----------------------------------------------------
     public static void main(String[] args) {
         int start_time, end_time;
-        String file_names[] = createTextFiles(20, 5, 220);
+        String file_names[] = createTextFiles(5, 5, 220);
 
-        System.out.println("*Exemple 1*");
+        System.out.println("-----------------------Exemple 1-----------------------");
         start_time = (int) System.currentTimeMillis();
         System.out.println("Number of lines : " + getNumOfLines(file_names));
         end_time = (int) System.currentTimeMillis();
