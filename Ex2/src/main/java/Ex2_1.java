@@ -13,7 +13,7 @@ public class Ex2_1 {
         Random rand = new Random(seed);
         for (int i = 0; i < n; i++) {
             int numOfLines = rand.nextInt(bound);
-            files_names[i] = createTextFiles1(i);
+            files_names[i] = create_files(i);
             write_files(files_names[i], numOfLines);
         }
         return files_names;
@@ -57,7 +57,7 @@ public class Ex2_1 {
     }
 
     //help function 2
-    private static String createTextFiles1(int num_file) {
+    private static String create_files(int num_file) {
         String fileName = "file_" + num_file + ".txt";
         try {
             File file = new File(fileName);
