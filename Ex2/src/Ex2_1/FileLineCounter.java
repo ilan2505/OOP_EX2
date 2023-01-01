@@ -12,20 +12,9 @@ public class FileLineCounter extends Thread {
     }
 
     public void run() {
-        int count = 0;
-        File file = new File(fileName);
-        synchronized (file) {
-            try {
-                Scanner reader = new Scanner(file);
-                while (reader.hasNextLine()) {
-                    count++;
-                    reader.nextLine();
-                }
-                reader.close();
-            } catch (FileNotFoundException e) {
-                System.out.println(e);
-            }
-            numOfLines = count;
-        }
+        this.numOfLines = functions.count_lines(fileName);
+    }
+    public int getNumOfLines() {
+        return numOfLines;
     }
 }

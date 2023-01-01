@@ -32,10 +32,14 @@ public class functions  {
     //help function 3 -----------------------------------------------------------------------------
     public static void write_files(String file_name, int num_lines) {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file_name));
+            File file = new File(file_name);
+            file.deleteOnExit();
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
             for (int i = 0; i < num_lines; i++) {
                 writer.write("Hello World" + "\n");
             }
+            writer.flush();
             writer.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
