@@ -35,7 +35,7 @@ In this assignment we have two parts:
 ### For
 ### For
 ### Explications des Resultats selon les zmanei ritsa si ils sont chavim ou pas.
-## Ex2_1 contains 4 classes :
+
 
 ```
 
