@@ -1,5 +1,5 @@
 # OOP_Ex2
-Second Assignment in Object-oriented programming course in Java @Ariel_University_2022
+Third Assignment in Object-oriented programming course in Java @Ariel_University_2022
 
 # Authors :
 * Boritsky Jonatan : 207254194
@@ -19,31 +19,40 @@ In this assignment we have two parts:
 * Part 1 : Ex2_1
 * Part 2 : Ex2_2
 
-# UML of the project 
+# ```Ex2_1 ```
+
+## UML of the project 
 <p align="center">
   <img align="center" width=80% src = ""/>
 </p>
 
-# Ex2_1 
 ## Ex2_1 contains 4 classes :
 
-
-# Ex2_2 
-
-
-
-# Results for our 3 functions 
-## For 
-## For
-## For
-## For
-## For
-## Explications des Resultats selon les zmanei ritsa si ils sont chavim ou pas.
+## Results for our 3 functions 
+### For 
+### For
+### For
+### For
+### For
+### Explications des Resultats selon les zmanei ritsa si ils sont chavim ou pas.
+## Ex2_1 contains 4 classes :
 
 ```
 
 
 ```
+## How to run Ex2_1 ?
+
+# ```Ex2_2 ```
+
+## UML of the project 
+<p align="center">
+  <img align="center" width=80% src = ""/>
+</p>
+
+## How to run Ex2_2 ?
 
 
-# How to run ? (Installing)
+
+
+
