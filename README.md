@@ -20,6 +20,8 @@ In this assignment we have two parts:
 
 * ```Part 2 : Ex2_2``` -->
 
+# How to run Ex2 ?
+
 # ```Ex2_1 ```
 ## UML of the project 
 <p align="center">
@@ -123,7 +125,7 @@ selon les zmanei ritsa si ils sont chavim ou pas.
 
 
 
-## How to run Ex2_1 ?
+
 
 
 
@@ -134,7 +136,6 @@ selon les zmanei ritsa si ils sont chavim ou pas.
   <img align="center" width=80% src = ""/>
 </p>
 
-## How to run Ex2_2 ?
 
 
 
