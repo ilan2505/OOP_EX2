@@ -76,9 +76,34 @@ Time : 80 ms
 Number of lines : 54096
 Time : 78 ms
 ```
-### For n=10 000, seed=42, bound=99 999 :
-### For n=10 000, seed=42, bound=99 999 :
-### For n=10 000, seed=42, bound=99 999 :
+### For n=1 000, seed=42, bound=9 999 :
+```
+[Normal Example]
+Number of lines : 4945060
+Time : 1157 ms
+
+[Example using Threads]
+Number of lines : 4945060
+Time : 621 ms
+
+[Example using Threads Pool]
+Number of lines : 4945060
+Time : 591 ms
+```
+### For n=1 000, seed=42, bound=99 999 :
+```
+[Normal Example]
+Number of lines : 49029445
+Time : 3674 ms
+
+[Example using Threads]
+Number of lines : 49029445
+Time : 1892 ms
+
+[Example using Threads Pool]
+Number of lines : 49029445
+Time : 1818 ms
+```
 ### For n=10 000, seed=42, bound=99 999 :
 ```
 [Normal Example]
@@ -93,7 +118,8 @@ Time : 24363 ms
 Number of lines : 498839180
 Time : 23994 ms
 ```
-### Explications des Resultats selon les zmanei ritsa si ils sont chavim ou pas.
+### Explanation of the results we saw before :
+selon les zmanei ritsa si ils sont chavim ou pas.
 
 
 
