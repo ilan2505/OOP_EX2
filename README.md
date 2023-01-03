@@ -23,7 +23,7 @@ In this assignment we have two parts:
 
 ## UML of the project 
 <p align="center">
-  <img align="center" width=80% src = ""/>
+  <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/210436830-59020281-6a61-4902-8bca-98aa585104f9.png"/>
 </p>
 
 ## Ex2_1 contains 4 classes :
