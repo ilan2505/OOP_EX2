@@ -1,6 +1,5 @@
 package Ex2_2;
 
-import java.util.Comparator;
 import java.util.concurrent.Callable;
 
 public class Task<T> implements Callable<T>, Comparable<Task<T>> {
@@ -21,8 +20,8 @@ public class Task<T> implements Callable<T>, Comparable<Task<T>> {
         return Task.createTask(callableObject, TaskType.OTHER);
     }
 
-    public TaskType getType(){
-        return type;
+    public int getPriority(){
+        return type.getPriorityValue();
     }
 
     @Override
@@ -32,6 +31,12 @@ public class Task<T> implements Callable<T>, Comparable<Task<T>> {
 
     @Override
     public int compareTo(Task<T> o) {
-        return (this.getType().getPriorityValue() - o.getType().getPriorityValue());
+        if (this.getPriority() == o.getPriority()) {
+            return 0;
+        } else if (this.getPriority() > o.getPriority()) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }
