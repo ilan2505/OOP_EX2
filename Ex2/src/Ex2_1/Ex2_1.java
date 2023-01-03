@@ -136,18 +136,18 @@ public class Ex2_1 {
         start_time = (int) System.currentTimeMillis();
         System.out.println("Number of lines : " + getNumOfLines(file_names));
         end_time = (int) System.currentTimeMillis();
-        System.out.println("Time in milliseconds : " + (end_time - start_time) + "\n");
+        System.out.println("Time : " + (end_time - start_time) + " ms" + "\n");
 
         System.out.println("[Example using Threads]");
         start_time = (int) System.currentTimeMillis();
         System.out.println("Number of lines : " + getNumOfLinesThreads(file_names));
         end_time = (int) System.currentTimeMillis();
-        System.out.println("Time in milliseconds : " + (end_time - start_time) + "\n");
+        System.out.println("Time : " + (end_time - start_time) + " ms" + "\n");
 
         System.out.println("[Example using Threads Pool]");
         start_time = (int) System.currentTimeMillis();
         System.out.println("Number of lines : " + getNumOfLinesThreadPool(file_names));
         end_time = (int) System.currentTimeMillis();
-        System.out.println("Time in milliseconds : " + (end_time - start_time));
+        System.out.println("Time : " + (end_time - start_time) + " ms");
     }
 }
