@@ -62,23 +62,36 @@ Explanation of each methods :
 * call() --> Call method for the forth function with ThreadPool.
 
 ## Results for our 3 functions 
-### For 
-### For
-### For
-### For
+### For n=100, seed=42, bound=999 :
+```
+[Normal Example]
+Number of lines : 54096
+Time : 93 ms
+
+[Example using Threads]
+Number of lines : 54096
+Time : 80 ms
+
+[Example using Threads Pool]
+Number of lines : 54096
+Time : 78 ms
+```
+### For n=10 000, seed=42, bound=99 999 :
+### For n=10 000, seed=42, bound=99 999 :
+### For n=10 000, seed=42, bound=99 999 :
 ### For n=10 000, seed=42, bound=99 999 :
 ```
 [Normal Example]
 Number of lines : 498839180
-Time in milliseconds : 49523
+Time : 49523 ms
 
 [Example using Threads]
 Number of lines : 498839180
-Time in milliseconds : 24363
+Time : 24363 ms
 
 [Example using Threads Pool]
 Number of lines : 498839180
-Time in milliseconds : 23994
+Time : 23994 ms
 ```
 ### Explications des Resultats selon les zmanei ritsa si ils sont chavim ou pas.
 
