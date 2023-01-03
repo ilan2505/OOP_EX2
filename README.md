@@ -16,8 +16,11 @@ Third Assignment in Object-oriented programming course in Java @Ariel_University
 
 # Topic of the Assignment 
 In this assignment we have two parts:
-* Part 1 : Ex2_1
-* Part 2 : Ex2_2
+* ```Part 1 : Ex2_1``` -->  It's a class that creates several text files and calculate the total number of lines in these files. We use three methods to do this : 1) Normal method without Threads  2) Method with Threads  3) Method with ThreadPool 
+
+ 
+ 
+* ```Part 2 : Ex2_2``` -->
 
 # ```Ex2_1 ```
 
@@ -27,6 +30,12 @@ In this assignment we have two parts:
 </p>
 
 ## Ex2_1 contains 4 classes :
+### Ex2_1.java
+Explanation of each methods :
+* createTextFiles(int n, int seed, int bound) -->
+* getNumOfLines(String[] fileNames) -->
+* getNumOfLinesThreads(String[] fileNames) --> 
+* getNumOfLinesThreadPool(String[] fileNames) -->
 
 ## Results for our 3 functions 
 ### For 
