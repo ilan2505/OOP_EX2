@@ -18,12 +18,9 @@ Third Assignment in Object-oriented programming course in Java @Ariel_University
 In this assignment we have two parts:
 * ```Part 1 : Ex2_1``` -->  It's a class that creates several text files and calculate the total number of lines in these files. We use three methods to do this : 1) Normal method without Threads  2) Method with Threads  3) Method with ThreadPool 
 
- 
- 
 * ```Part 2 : Ex2_2``` -->
 
 # ```Ex2_1 ```
-
 ## UML of the project 
 <p align="center">
   <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/210436830-59020281-6a61-4902-8bca-98aa585104f9.png"/>
@@ -31,26 +28,65 @@ In this assignment we have two parts:
 
 ## Ex2_1 contains 4 classes :
 ### Ex2_1.java
+This class creates several text files and calculate the total number of lines in these files with methods using nothing, threads and threadPool.<br>
 Explanation of each methods :
-* createTextFiles(int n, int seed, int bound) -->
-* getNumOfLines(String[] fileNames) -->
-* getNumOfLinesThreads(String[] fileNames) --> 
-* getNumOfLinesThreadPool(String[] fileNames) -->
+* createTextFiles(int n, int seed, int bound) --> This method creates n text files on disk and returns an array of the file names. In each line we write a sentence : "Hello World".
+* getNumOfLines(String[] fileNames) --> Gives the total number of lines in these files. This method doesn't use any thread.
+* getNumOfLinesThreads(String[] fileNames) --> Gives the total number of lines in these files using Threads.
+* getNumOfLinesThreadPool(String[] fileNames) --> Gives the total number of lines in these files using ThreadPool.
+
+### functions.java
+This class contains helps functions that we use in our Ex2_1.java class.<br>
+Explanation of each methods :
+* count_lines(String file_name) --> Opens a file and counts the lines inside the file.
+* create_files(int num_file) --> Creates a new file with the name "file_X".
+* write_files(String file_name, int num_lines) --> Writes "Hello World" in each line of the file.
+
+### FileLineCounter.java
+This class extends Thread that we need to use threads in our function number 3 "getNumOfLinesThreads(String[] fileNames)". <br>
+Objects of this class :
+* fileName --> Name of the file.
+* numOfLines --> Number of lines.<br><br>
+Explanation of each methods :
+* FileLineCounter(String fileName) --> Constructor.
+* run() --> Run method for the third function with threads.
+* getNumOfLines() --> Gives the num of lines into threads.
+
+### FileLineCounterCallable.java
+This class is an implement of Callable that we need to use ThreadPool in our function number 4 "getNumOfLinesThreadPool(String[] fileNames)".<br>
+Objects of this class :
+* fileName --> Name of the file.
+* numOfLines --> Number of lines.<br><br>
+Explanation of each methods :
+* FileLineCounterCallable(String fileName) --> Constructor.
+* call() --> Call method for the forth function with ThreadPool.
 
 ## Results for our 3 functions 
 ### For 
 ### For
 ### For
 ### For
-### For
+### For n=10 000, seed=42, bound=99 999 :
+```
+[Normal Example]
+Number of lines : 498839180
+Time in milliseconds : 49523
+
+[Example using Threads]
+Number of lines : 498839180
+Time in milliseconds : 24363
+
+[Example using Threads Pool]
+Number of lines : 498839180
+Time in milliseconds : 23994
+```
 ### Explications des Resultats selon les zmanei ritsa si ils sont chavim ou pas.
 
 
-```
 
-
-```
 ## How to run Ex2_1 ?
+
+
 
 # ```Ex2_2 ```
 
