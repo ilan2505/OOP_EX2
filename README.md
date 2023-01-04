@@ -21,8 +21,15 @@ In this assignment we have two parts:
 * ```Part 2 : Ex2_2``` -->
 
 # How to run Ex2 ?
+For Windows OS:  
+1. Make sure you have git installed on your machine
+2. Download the project from GitHub
+```
+$ git clone https://github.com/ilan2505/OOP_EX2.git
+```
+4. 
 
-# ```Ex2_1 ```
+# Ex2_1 
 ## UML of the project 
 <p align="center">
   <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/210436830-59020281-6a61-4902-8bca-98aa585104f9.png"/>
@@ -129,7 +136,7 @@ selon les zmanei ritsa si ils sont chavim ou pas.
 
 
 
-# ```Ex2_2 ```
+# Ex2_2 
 
 ## UML of the project 
 <p align="center">
