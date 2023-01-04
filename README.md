@@ -128,8 +128,12 @@ Number of lines : 498839180
 Time : 23994 ms
 ```
 ### Explanation of the results we saw before :
-selon les zmanei ritsa si ils sont chavim ou pas.
+We can conclude two important things: 
+* the first is that the first method without using thread or thread pool is much slower than the other two methods. 
+* the second is that for the other two methods (thread and threadPool) they are roughly equal with a slight advantage for threadPool which is a tiny bit faster. <br><br>
 
+The reason is simple, it's just that thread and threadPool methods can perform several tasks at the same time unlike the first method which does one by one.
+We can also see that the more files we have with more and more lines, the more the 3 methods will take longer to give the total number of lines in all the files. Conclusion always use Thread or ThreadPool depending on what you need to do in parallel !
 
 
 
