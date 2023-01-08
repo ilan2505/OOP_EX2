@@ -33,7 +33,7 @@ public class Task<T> implements Callable<T>, Comparable<Task<T>> {
     public int compareTo(Task<T> o) {
         if (this.getPriority() == o.getPriority()) {
             return 0;
-        } else if (this.getPriority() > o.getPriority()) {
+        } else if (this.getPriority() < o.getPriority()) {
             return 1;
         } else {
             return -1;
