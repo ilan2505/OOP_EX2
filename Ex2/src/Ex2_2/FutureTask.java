@@ -38,9 +38,8 @@ public class FutureTask<T> implements Future<T>, Comparable<FutureTask<T>> {
 
     @Override
     public T get() throws InterruptedException, ExecutionException {
-        Thread.sleep(1000);
-        if (result == null) {
-            throw new ExecutionException(new Exception("Task is not done yet"));
+        while (result == null) {
+            continue;
         }
         return result;
     }
@@ -49,7 +48,7 @@ public class FutureTask<T> implements Future<T>, Comparable<FutureTask<T>> {
     public T get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
         Thread.sleep(unit.toMillis(timeout));
         if (result == null) {
-            throw new TimeoutException();
+            throw new TimeoutException("Task is not done yet, timeout has been reached");
         }
         return this.get();
     }

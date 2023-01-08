@@ -6,12 +6,12 @@ import java.util.Stack;
 public class TaskQueue extends Thread {
     private PriorityQueue<FutureTask> queue;
     private boolean isBlocked;
-    private Stack<Integer> currentMax;
+    private volatile int currentMax;
 
     public TaskQueue() {
         super();
         queue = new PriorityQueue<>();
-        currentMax = new Stack<>();
+        currentMax = 10;
         isBlocked = false;
     }
 
@@ -25,31 +25,24 @@ public class TaskQueue extends Thread {
         }
         synchronized (this) {
             queue.add(futureTask);
-            if (currentMax.isEmpty()) {
-                currentMax.push(futureTask.getTask().getPriority());
+            if (futureTask.getTask().getPriority() < currentMax) {
+                currentMax = futureTask.getTask().getPriority();
             }
-            else if (futureTask.getTask().getPriority() < currentMax.peek()) {
-                currentMax.push(futureTask.getTask().getPriority());
-            }
-            notify();
+            notifyAll();
         }
     }
 
     public FutureTask getTask() {
         synchronized (this) {
-            if (queue.isEmpty()) {
+            while (queue.isEmpty()) {
                 try {
                     wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-        }
-        synchronized (this) {
             FutureTask futureTask = queue.poll();
-            if (currentMax.size() > 1) {
-                currentMax.pop();
-            }
+            currentMax = futureTask.getTask().getPriority();
             return futureTask;
         }
     }
@@ -69,15 +62,13 @@ public class TaskQueue extends Thread {
         }
         synchronized (this) {
             FutureTask futureTask = queue.poll();
-            if (currentMax.size() > 1) {
-                currentMax.pop();
-            }
+            currentMax = futureTask.getTask().getPriority();
             return futureTask;
         }
     }
 
     public int getCurrentMax() {
-        return currentMax.peek();
+        return currentMax;
     }
 
     public void blockQueue(){
