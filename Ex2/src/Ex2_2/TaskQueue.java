@@ -1,16 +1,18 @@
 package Ex2_2;
 
 import java.util.PriorityQueue;
-import java.util.concurrent.Callable;
+import java.util.Stack;
 
 public class TaskQueue extends Thread {
     private PriorityQueue<FutureTask> queue;
-    private int currentMax;
+    private boolean isBlocked;
+    private Stack<Integer> currentMax;
 
     public TaskQueue() {
         super();
         queue = new PriorityQueue<>();
-        currentMax = 0;
+        currentMax = new Stack<>();
+        isBlocked = false;
     }
 
     public void run() {
@@ -18,17 +20,23 @@ public class TaskQueue extends Thread {
     }
 
     public void addTask(FutureTask futureTask) {
-        synchronized (queue) {
+        if(isBlocked){
+            return;
+        }
+        synchronized (this) {
             queue.add(futureTask);
-            if (futureTask.getTask().getPriority() > currentMax) {
-                currentMax = futureTask.getTask().getPriority();
+            if (currentMax.isEmpty()) {
+                currentMax.push(futureTask.getTask().getPriority());
             }
-            notifyAll();
+            else if (futureTask.getTask().getPriority() < currentMax.peek()) {
+                currentMax.push(futureTask.getTask().getPriority());
+            }
+            notify();
         }
     }
 
     public FutureTask getTask() {
-        synchronized (queue) {
+        synchronized (this) {
             if (queue.isEmpty()) {
                 try {
                     wait();
@@ -36,15 +44,47 @@ public class TaskQueue extends Thread {
                     e.printStackTrace();
                 }
             }
+        }
+        synchronized (this) {
             FutureTask futureTask = queue.poll();
-            if (currentMax > futureTask.getTask().getPriority()) {
-                currentMax = futureTask.getTask().getPriority();
+            if (currentMax.size() > 1) {
+                currentMax.pop();
+            }
+            return futureTask;
+        }
+    }
+
+    public FutureTask getTask(int timeout) {
+        synchronized (this) {
+            if (queue.isEmpty()) {
+                try {
+                    wait(timeout);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (queue.isEmpty()) {
+                return null;
+            }
+        }
+        synchronized (this) {
+            FutureTask futureTask = queue.poll();
+            if (currentMax.size() > 1) {
+                currentMax.pop();
             }
             return futureTask;
         }
     }
 
     public int getCurrentMax() {
-        return currentMax;
+        return currentMax.peek();
+    }
+
+    public void blockQueue(){
+        isBlocked = true;
+    }
+
+    public int getSize(){
+        return queue.size();
     }
 }

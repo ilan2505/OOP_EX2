@@ -18,26 +18,24 @@ public class TaskThread extends Thread {
     @Override
     public void run() {
         while (isRunning) {
-            if (isIdle) {
-                if(this.getState() == State.WAITING) {
-                    try {
-                        Thread.sleep(300);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (this.getState() == State.WAITING) {
-                    stopThread();
-                }
-            }
             try {
-                FutureTask futureTask = queue.getTask();
+                FutureTask futureTask;
+                if (isIdle) {
+                    futureTask = queue.getTask(300);
+                }
+                else{
+                    futureTask = queue.getTask();
+                }
+                if (futureTask == null) {
+                    return;
+                }
                 futureTask.setResult(futureTask.getTask().call());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
+
 
     public void setIdle(){
         this.isIdle = true;

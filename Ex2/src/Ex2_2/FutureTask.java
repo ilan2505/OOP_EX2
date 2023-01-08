@@ -5,15 +5,15 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-public class FutureTask implements Future, Comparable<FutureTask> {
+public class FutureTask<T> implements Future<T>, Comparable<FutureTask<T>> {
     private PriorityAdaptedTask task;
-    private Object result;
+    private T result;
 
     public FutureTask(Task task) {
         this.task = new PriorityAdaptedTask(task);
     }
 
-    public void setResult(Object result) {
+    public void setResult(T result) {
         this.result = result;
     }
 
@@ -37,14 +37,21 @@ public class FutureTask implements Future, Comparable<FutureTask> {
     }
 
     @Override
-    public Object get() throws InterruptedException, ExecutionException {
+    public T get() throws InterruptedException, ExecutionException {
+        Thread.sleep(1000);
+        if (result == null) {
+            throw new ExecutionException(new Exception("Task is not done yet"));
+        }
         return result;
     }
 
     @Override
-    public Object get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
-        Thread.sleep(timeout);
-        return result;
+    public T get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
+        Thread.sleep(unit.toMillis(timeout));
+        if (result == null) {
+            throw new TimeoutException();
+        }
+        return this.get();
     }
 
     @Override
