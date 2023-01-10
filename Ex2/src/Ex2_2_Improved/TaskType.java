@@ -1,5 +1,8 @@
 package Ex2_2_Improved;
 
+/**
+ * This class is given from the Assignment file.
+ */
 public enum TaskType {
     COMPUTATIONAL(1){
         @Override
