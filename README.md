@@ -145,7 +145,7 @@ We can also see that the more files we have with more and more lines, the more t
 
 ## UML of the project 
 <p align="center">
-  <img align="center" width=80% src = ""/>
+  <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/211620359-84ad3834-d864-4717-9f34-99415e2d12b4.jpeg"/>
 </p>
 
 
