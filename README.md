@@ -148,6 +148,22 @@ We can also see that the more files we have with more and more lines, the more t
   <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/211622709-24cfe4b2-bd31-4c6b-a877-756f06694672.png"/>
 </p>
 
+## Ex2_2 contains 6 classes :
+### CustomExecutor.java
+### Ex2_2.java
+### FutureTaskAdapter.java
+### FutureTaskComparator.java
+### Task.java
+### TaskType.java
+
+##  Description of the design and development considerations and provide techniques/patterns that we employed :
+
+## Difficulties we have encountered and how we handled them :
+
+## how the proposed design contributed to enhance the flexibility, performance, and maintainability of our code ?
+
+
+
 
 
 
