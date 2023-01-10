@@ -28,7 +28,7 @@ For Windows OS:
 $ git clone https://github.com/ilan2505/OOP_EX2.git
 ```
 4. For Ex2_1: all you have to do is to run the Main function in the Ex2_1.java by changing the parameters (n, seed, bound) that you want.
-5. For Ex2_2: 
+5. For Ex2_2: you need to run the main Ex2_2 to see how the tests work.
 
 # Ex2_1 
 ## UML of the project 
