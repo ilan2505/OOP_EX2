@@ -150,52 +150,48 @@ We can also see that the more files we have with more and more lines, the more t
 
 ## Ex2_2 contains 6 classes :
 ### CustomExecutor.java
-This class ... <br>
+This class represents a custom executor service, implemented by extending ThreadPoolExecutor. <br>
 Explanation of each methods :
-* CustomExecutor() -->
-* submit(Task<T> task) -->
-* submit(Callable<T> callable, TaskType type) -->
-* submit(Callable callable) -->
-* beforeExecute(Thread t, Runnable r) -->
-* getCurrentMax() --> 
-* gracefullyTerminate() -->
+* CustomExecutor() --> creates with number of threads a new custom executor.
+* submit(Task<T> task) --> gives a future task to the executor service.
+* submit(Callable<T> callable, TaskType type) --> submits a task with a task type, and gives this task to the executor service.
+* submit(Callable callable) --> call the submit function with the default task type OTHER.
+* beforeExecute(Thread t, Runnable r) --> This function is called when the thread pool is about to execute a task. The function cast the task to a future task adapter and get th priority of the task and assign it to the CurrentMax.
+* getCurrentMax() --> returns the current max priority of the executed task in the queue.
+* gracefullyTerminate() --> end off the executor service.
 
 
 ### Ex2_2.java
-This class ... <br>
+This class is a main class to run the tests. <br>
 Explanation of each methods :
-* partialTest() -->
+* partialTest() --> differents tests.
 
 
 ### FutureTaskAdapter.java
-This class extendds FutureTask ... <br>
+This class provides an adapter for task in order to enable the use of the inner priority queue of thread pool, which contains only runnable objects. <br>
 Explanation of each methods :
-* FutureTaskAdapter(Task<T> task) -->
-* getPriority() -->
+* FutureTaskAdapter(Task<T> task) --> Constructor of the FutureTaskAdapter class.
+* getPriority() --> returns the priority of the task.
 
 
 ### FutureTaskComparator.java
-This class extends Comparator ... <br>
+This class implements Callable. This class provides a comparator for future tasks. It compares between two future tasks by their tasks natural order. <br>
 Explanation of each methods :
-* compare(FutureTaskAdapter<T> t1, FutureTaskAdapter<T> t2) -->
+* compare(FutureTaskAdapter<T> t1, FutureTaskAdapter<T> t2) --> Compares the task with the task for order.
 
 
 ### Task.java
-This class implements Callable <br>
+This class represents a task that can be executed by a custom thread pool. <br>
 Explanation of each methods :
-* Task(Callable<T> CallableObject, TaskType type) -->
-* createTask(Callable<T> callableObject, TaskType type) -->
-* getPriority() -->
-* call() -->
+* Task(Callable<T> CallableObject, TaskType type) --> creates a new task with the given task and the task type.
+* createTask(Callable<T> callableObject, TaskType type) --> creates a task with the given task and the task type.
+createTask(Callable<T> callableObject) --> creates a task with the given task.
+* getPriority() --> get the priority value of the type.
+* call() --> calls the method for the task.
 
 ### TaskType.java
 This class... <br>
 Explanation of each methods :
-* toString() -->
-* TaskType(int priority) -->
-* setPriority(int priority) -->
-* getPriorityValue() -->
-* getType() -->
 * validatePriority(int priority) -->priority is represented by an integer value, ranging from 1 to 10, return  : whether the priority is valid or not
 
 ##  Description of the design and development considerations and provide techniques/patterns that we employed :
