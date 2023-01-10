@@ -150,11 +150,53 @@ We can also see that the more files we have with more and more lines, the more t
 
 ## Ex2_2 contains 6 classes :
 ### CustomExecutor.java
+This class ... <br>
+Explanation of each methods :
+* CustomExecutor() -->
+* submit(Task<T> task) -->
+* submit(Callable<T> callable, TaskType type) -->
+* submit(Callable callable) -->
+* beforeExecute(Thread t, Runnable r) -->
+* getCurrentMax() --> 
+* gracefullyTerminate() -->
+
+
 ### Ex2_2.java
+This class ... <br>
+Explanation of each methods :
+* partialTest() -->
+
+
 ### FutureTaskAdapter.java
+This class extendds FutureTask ... <br>
+Explanation of each methods :
+* FutureTaskAdapter(Task<T> task) -->
+* getPriority() -->
+
+
 ### FutureTaskComparator.java
+This class extends Comparator ... <br>
+Explanation of each methods :
+* compare(FutureTaskAdapter<T> t1, FutureTaskAdapter<T> t2) -->
+
+
 ### Task.java
+This class implements Callable <br>
+Explanation of each methods :
+* Task(Callable<T> CallableObject, TaskType type) -->
+* createTask(Callable<T> callableObject, TaskType type) -->
+* getPriority() -->
+* call() -->
+
 ### TaskType.java
+This class... <br>
+Explanation of each methods :
+* toString() -->
+* TaskType(int priority) -->
+* setPriority(int priority) -->
+* getPriorityValue() -->
+* getType() -->
+* validatePriority(int priority) -->priority is represented by an integer value, ranging from 1 to 10, return  : whether the priority is valid or not
 
 ##  Description of the design and development considerations and provide techniques/patterns that we employed :
 
