@@ -5,7 +5,7 @@ import Ex2_2.FutureTask;
 import java.util.Comparator;
 
 /**
- * This class provides
+ * This class provides a comparator for future tasks. It compares between two future tasks by their tasks natural order.
  * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
  */
 public class FutureTaskComparator<T> implements Comparator<FutureTaskAdapter<T>> {

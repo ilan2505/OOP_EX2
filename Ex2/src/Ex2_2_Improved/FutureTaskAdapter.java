@@ -4,7 +4,8 @@ package Ex2_2_Improved;
 import java.util.concurrent.FutureTask;
 
 /**
- * This class provides
+ * This class provides an adapter for task in order to enable the use of the inner priority queue of thread pool.
+ * Which contains only runnable objects.
  * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
  */
 public class FutureTaskAdapter<T> extends FutureTask {
@@ -13,7 +14,7 @@ public class FutureTaskAdapter<T> extends FutureTask {
     
     /**
      * Constructor of the FutureTaskAdapter class.
-     * @param task
+     * @param task - the task that we want to adapt.
      */
     public FutureTaskAdapter(Task<T> task)
     {
@@ -23,8 +24,8 @@ public class FutureTaskAdapter<T> extends FutureTask {
     }
 
     /**
-     * This function
-     * @return task -
+     * This function returns the priority of the task.
+     * @return - the priority of the task.
      */
     public int getPriority()
     {

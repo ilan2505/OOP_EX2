@@ -162,10 +162,18 @@ We can also see that the more files we have with more and more lines, the more t
 
 ## how the proposed design contributed to enhance the flexibility, performance, and maintainability of our code ?
 
-
-
-
-
+### Design considerations
+The solution we chose for this part is to implement the ThreadPool Executor ourselves. <br>
+The Task class is the class that implements the Callable interface and is responsible for the execution a task. <br>
+This class can be created by factory method. <br>
+This class contains the following field:
+TaskType is an enum that defines the type of task and its order to be executed. <br>
+This class is also implement Comparable interface to compare between tasks. <br>
+In order to adapt the natural order of tasks to whose priority queue, we use Adapter pattern. <br>
+The TaskThread class is the class that extends Thread and is responsible to pull tasks from the priority queue of tasks and execute them. <br>
+We created a class that represents the priority queue of tasks which extends Thread also and uses join to suspend the main thread until it is empty from tasks. Also can be blocked by the method block(). <br>
+FutureTask class is the class that implements Future interface and is responsible to return the result of the task. <br>
+The CustomThreadPoolExecutor class is the class that implements Executor interface and is responsible to execute tasks. <br>
 
 
 

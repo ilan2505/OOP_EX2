@@ -3,7 +3,7 @@ package Ex2_2_Improved;
 import java.util.concurrent.Callable;
 
 /**
- * This class provides
+ * This class represents a task that can be executed by a custom thread pool.
  * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
  */
 public class Task<T> implements Callable<T> {
@@ -12,8 +12,8 @@ public class Task<T> implements Callable<T> {
 
     /**
      * This function creates a new task with the given task and the task type.
-     * @param CallableObject
-     * @param type
+     * @param CallableObject - the operation that the task will execute.
+     * @param type- The type of the task.
      */
     private Task(Callable<T> CallableObject, TaskType type) {
         this.task = CallableObject;
