@@ -3,9 +3,13 @@ package Ex2_2_Improved;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
-
 import java.util.concurrent.*;
 
+/**
+ * This class is a main class to run the tests.
+ * This class is given from the Assignment file where we add others tests.
+ * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
+ */
 public class Ex2_2 {
     final Logger logger = LoggerFactory.getLogger(Ex2_2.class);
     @Test
