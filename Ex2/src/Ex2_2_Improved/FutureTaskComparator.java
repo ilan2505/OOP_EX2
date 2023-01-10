@@ -17,7 +17,7 @@ public class FutureTaskComparator<T> implements Comparator<FutureTaskAdapter<T>>
         }
         else
         {
-            return 11;
+            return 1;
         }
     }
 
