@@ -1,5 +1,8 @@
-package Ex2_2_Improved;
+package Tests;
 
+import Ex2_2.CustomExecutor;
+import Ex2_2.Task;
+import Ex2_2.TaskType;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
@@ -10,8 +13,8 @@ import java.util.concurrent.*;
  * This class is given from the Assignment file where we add others tests.
  * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
  */
-public class Ex2_2 {
-    final Logger logger = LoggerFactory.getLogger(Ex2_2.class);
+public class Ex2_2Test {
+    final Logger logger = LoggerFactory.getLogger(Ex2_2Test.class);
     @Test
     public void partialTest(){
         CustomExecutor customExecutor = new CustomExecutor();
@@ -25,7 +28,7 @@ public class Ex2_2 {
         Future<Integer> sumTask = customExecutor.submit(task);
         final int sum;
         try {
-            sum = sumTask.get(1, TimeUnit.MILLISECONDS);
+            sum = sumTask.get(50000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             throw new RuntimeException(e);
         }

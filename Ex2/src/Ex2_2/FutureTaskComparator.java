@@ -1,6 +1,4 @@
-package Ex2_2_Improved;
-
-import Ex2_2.FutureTask;
+package Ex2_2;
 
 import java.util.Comparator;
 

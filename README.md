@@ -145,7 +145,8 @@ We can also see that the more files we have with more and more lines, the more t
 
 ## UML of the project 
 <p align="center">
-  <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/211622709-24cfe4b2-bd31-4c6b-a877-756f06694672.png"/>
+    
+    <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/211622709-24cfe4b2-bd31-4c6b-a877-756f06694672.png"/>
 </p>
 
 ## Ex2_2 contains 6 classes :
@@ -195,23 +196,34 @@ Explanation of each methods :
 * validatePriority(int priority) -->priority is represented by an integer value, ranging from 1 to 10, return  : whether the priority is valid or not
 
 ##  Description of the design and development considerations and provide techniques/patterns that we employed :
+The solution we chose for this part is to adapt the ThreadPoolExecutor class to our needs. We did this by creating a custom executor service that extends ThreadPoolExecutor,
+to scheduling the tasks in the queue according to their priority. <br>
+
+Design patterns used:
+1) ``Factory method pattern:`` We used this pattern to create the tasks.
+2) ``Adapter pattern:`` We used this pattern to adapt Task to Runnable due to the inner priority queue constraints og the ThreadPoolExecutor, using FutureTaskAdapter
+which implements Future to store the future result.
+
+OOP principles used:
+1) ``Inheritance:`` We used inheritance to extend the ThreadPoolExecutor class.
+2) ``Interface:`` We used interface to define the Task class as Callable.
+
+We used the following techniques:
+1) ``Priority queue:`` We used a priority queue to store the tasks in the queue according to their priority.
+2) ``Future:`` We used Future to store the future result of the task.
+3) ``Callable:`` We used Callable to define the task as a callable object.
+4) ``Comparator:`` We used Comparator to compare between two tasks according to their priority.
+
 
 ## Difficulties we have encountered and how we handled them :
+We had encountered with the following difficulties:
+1) We didn't succeed to find a way to avoid casting the Runnable object to FutureTaskAdapter in the beforeExecute method. Even though it stands in contradiction with one of the SOLID principles, we decided to leave it as it is.
+2) We have noticed that the main thread reach the GetCurrentMax method before the thread pool executes the tasks called by the main thread. This is because the main thread is not a part of the thread pool.
 
 ## how the proposed design contributed to enhance the flexibility, performance, and maintainability of our code ?
-
-### Design considerations
-The solution we chose for this part is to implement the ThreadPool Executor ourselves. <br>
-The Task class is the class that implements the Callable interface and is responsible for the execution a task. <br>
-This class can be created by factory method. <br>
-This class contains the following field:
-TaskType is an enum that defines the type of task and its order to be executed. <br>
-This class is also implement Comparable interface to compare between tasks. <br>
-In order to adapt the natural order of tasks to whose priority queue, we use Adapter pattern. <br>
-The TaskThread class is the class that extends Thread and is responsible to pull tasks from the priority queue of tasks and execute them. <br>
-We created a class that represents the priority queue of tasks which extends Thread also and uses join to suspend the main thread until it is empty from tasks. Also can be blocked by the method block(). <br>
-FutureTask class is the class that implements Future interface and is responsible to return the result of the task. <br>
-The CustomThreadPoolExecutor class is the class that implements Executor interface and is responsible to execute tasks. <br>
-
+The proposed design helps to enhance the flexibility, performance, and maintainability of our code in the following ways:
+1) ``Flexibility:`` The proposed design allows us to change the order in which the tasks are executed in the queue according to their priority. By simply changing the comparator, we can change the order in which the tasks are executed.
+2) ``Performance:`` The proposed design relies on the priority queue which is a data structure that is implemented using a heap. This data structure allows us to insert and remove elements in O(log(n)) time complexity. This is much better than the O(n) time complexity of the linked list. Additionally, by using the built-in methods of ThreadPoolExecutor, we can make sure that the queue is thread-safe.
+3) ``Maintainability:`` The code is simply and by using familiar APIs and design patterns makes it easy to understand and maintain.
 
 

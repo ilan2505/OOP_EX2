@@ -1,4 +1,4 @@
-package Ex2_2_Improved;
+package Ex2_2;
 
 
 import java.util.concurrent.FutureTask;
