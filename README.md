@@ -145,8 +145,8 @@ We can also see that the more files we have with more and more lines, the more t
 
 ## UML of the project 
 <p align="center">
+    ![FutureTaskComparator](https://user-images.githubusercontent.com/73108322/212267478-9d0bad8d-146a-4e73-892d-2f9f29fdf01c.png)
     
-    <img align="center" width=80% src = "https://user-images.githubusercontent.com/55143087/211622709-24cfe4b2-bd31-4c6b-a877-756f06694672.png"/>
 </p>
 
 ## Ex2_2 contains 6 classes :
