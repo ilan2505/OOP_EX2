@@ -18,7 +18,9 @@ Third Assignment in Object-oriented programming course in Java @Ariel_University
 In this assignment we have two parts:
 * ```Part 1 : Ex2_1``` -->  It's a class that creates several text files and calculate the total number of lines in these files. We use three methods to do this : 1) Normal method without Threads  2) Method with Threads  3) Method with ThreadPool 
 
-* ```Part 2 : Ex2_2``` -->
+* ```Part 2 : Ex2_2``` --> The goal is to create two new types that extend the functionality of Javas Concurrency Framework
+1. A generic task with a Type that returns a result and may throw an exception.Each task has a priority used for scheduling inferred from the integer value of the tasks Type.
+2. A custom thread pool class that defines a method for submitting a generic task as described in the section 1 to a priority queue, and a method for submitting a generic task created by a Callable<V> and a Type, passed as arguments. 
 
 # How to run Ex2 ?
 For Windows OS:  
