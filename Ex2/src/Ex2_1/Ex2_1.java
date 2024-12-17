@@ -12,7 +12,7 @@ import java.util.concurrent.*;
  * 2. Method with Threads.
  * 3. Method with ThreadPool.
  * The class includes method main to check that everything is working properly.
- * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
+ * @author Jonatan Boritsky,  Ilan Meyer Souffir
  */
 
 public class Ex2_1 {
