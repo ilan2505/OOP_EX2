@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * This class extends Thread that we need to use threads in our function number 3 "getNumOfLinesThreads(String[] fileNames)".
- * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
+ * @author Jonatan Boritsky,  Ilan Meyer Souffir
  */
 public class FileLineCounter extends Thread {
     private String fileName;       //name of the file
