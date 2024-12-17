@@ -3,7 +3,7 @@ import java.io.*;
 
 /**
  * This class contains helps functions that we use in our Ex2_1 class.
- * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
+ * @author Jonatan Boritsky,  Ilan Meyer Souffir
  */
 
 public class functions  {
