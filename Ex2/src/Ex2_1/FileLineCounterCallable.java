@@ -9,7 +9,7 @@ import static Ex2_1.Ex2_1.getNumOfLines;
 
 /**
  * This class is an implement of Callable that we need to use ThreadPool in our function number 4 "getNumOfLinesThreadPool(String[] fileNames)".
- * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
+ * @author Jonatan Boritsky,  Ilan Meyer Souffir
  */
 public class FileLineCounterCallable implements Callable<Integer> {
     private String fileName;        //name of the file
