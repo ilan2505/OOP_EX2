@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  * This class represents a custom executor service.
  * Implements by extending ThreadPoolExecutor.
  * This class provides a thread pool that can schedule tasks to be executed in the future according to the tasks natural order..
- * @author Jonatan Boritsky : 207254194,  Ilan Meyer Souffir : 342615648
+ * @author Jonatan Boritsky,  Ilan Meyer Souffir
  */
 
 public class CustomExecutor<T> extends ThreadPoolExecutor {
